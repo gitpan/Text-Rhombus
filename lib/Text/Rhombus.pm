@@ -1,4 +1,4 @@
-# $Id: Rhombus.pm,v 0.06 2004/01/16 00:03:12 sts Exp $
+# $Id: Rhombus.pm,v 0.07 2004/01/18 14:27:14 sts Exp $
 
 package Text::Rhombus;
 
@@ -7,7 +7,7 @@ use base(Exporter);
 use strict;
 use warnings;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 our @EXPORT_OK = q(rhombus);
 
@@ -29,15 +29,17 @@ sub rhombus {
     my ($line, $repeat) = (1,1);
     for (; $line <= $lines; $line++) {
         my $space = ($lines - $repeat) / 2;
-	$rhombus .= $fillup x $space;
+	my $fillup_space = $fillup x $space;
+	
+	$rhombus .= $fillup_space;
         $rhombus .= $letter x $repeat; 
-        $rhombus .= $fillup x $space."\n";
+        $rhombus .= $fillup_space."\n";
 	
 	$repeat = $line < ($lines / 2)
 	  ? $repeat + 2
 	  : $repeat - 2;
 
-        $letter = chr(ord ($letter) + 1);
+        $letter = chr(ord($letter) + 1);
 
         if ($letter !~ /[a-z]/i) {
 	    $letter = $case eq 'upper' ? 'A' : 'a';
