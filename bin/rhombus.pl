@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Text::Rhombus q/rhombus/;
+use Text::Rhombus q(rhombus);
 
 print rhombus(
     lines   =>         31,

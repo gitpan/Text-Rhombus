@@ -1,15 +1,54 @@
-# $Id: Rhombus.pm,v 0.05 2004/01/16 00:03:12 sts Exp $
+# $Id: Rhombus.pm,v 0.06 2004/01/16 00:03:12 sts Exp $
 
 package Text::Rhombus;
 
 use 5.006;
-use base qw(Exporter);
+use base(Exporter);
 use strict;
 use warnings;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
-our @EXPORT_OK = qw(rhombus);
+our @EXPORT_OK = q(rhombus);
+
+sub rhombus {
+    my %o = @_;
+    
+    my ($rhombus, $lines, $letter,
+        $case, $fillup);
+    
+    $lines  = $o{lines}  ||      25;
+    $letter = $o{letter} ||     'a';
+    $case   = $o{case}   || 'upper'; 
+    $fillup = $o{fillup} ||     '+'; 
+        
+    $letter = $case eq 'upper' ? uc $letter : lc $letter;
+    
+    $lines++ if $lines % 2 == 0;
+    
+    my ($line, $repeat) = (1,1);
+    for (; $line <= $lines; $line++) {
+        my $space = ($lines - $repeat) / 2;
+	$rhombus .= $fillup x $space;
+        $rhombus .= $letter x $repeat; 
+        $rhombus .= $fillup x $space."\n";
+	
+	$repeat = $line < ($lines / 2)
+	  ? $repeat + 2
+	  : $repeat - 2;
+
+        $letter = chr(ord ($letter) + 1);
+
+        if ($letter !~ /[a-z]/i) {
+	    $letter = $case eq 'upper' ? 'A' : 'a';
+	}
+    }
+    
+    return $rhombus;
+}
+
+1;
+__END__
 
 =head1 NAME
 
@@ -17,7 +56,7 @@ Text::Rhombus - draw an alphanumerical rhombus.
 
 =head1 SYNOPSIS
 
- use Text::Rhombus q/rhombus/;
+ use Text::Rhombus q(rhombus);
 
  print rhombus(
      lines   =>         31,
@@ -72,45 +111,6 @@ fillup character.
 =back
 
 =cut
-
-sub rhombus {
-    my %o = @_;
-    
-    my ($rhombus, $lines, $letter,
-        $case, $fillup);
-    
-    $lines  = $o{lines}  ||      25;
-    $letter = $o{letter} ||     'a';
-    $case   = $o{case}   || 'upper'; 
-    $fillup = $o{fillup} ||     '+'; 
-        
-    $letter = $case eq 'upper' ? uc $letter : lc $letter;
-    
-    $lines++ if $lines % 2 == 0;
-    
-    my ($line, $repeat) = (1,1);
-    for (; $line <= $lines; $line++) {
-        my $space = ($lines - $repeat) / 2;
-	$rhombus .= $fillup x $space;
-        $rhombus .= $letter x $repeat; 
-        $rhombus .= $fillup x $space."\n";
-	
-	$repeat = $line < ($lines / 2)
-	  ? $repeat + 2
-	  : $repeat - 2;
-
-        $letter = chr(ord ($letter) + 1);
-
-        if ($letter !~ /[a-z]/i) {
-	    $letter = $case eq 'upper' ? 'A' : 'a';
-	}
-    }
-    
-    return $rhombus;
-}
-
-1;
-__END__
 
 =head1 EXPORT
 
