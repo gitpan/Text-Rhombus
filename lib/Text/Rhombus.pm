@@ -1,23 +1,15 @@
-# $Id: Rhombus.pm,v 0.04 2004/01/16 00:03:12 sts Exp $
+# $Id: Rhombus.pm,v 0.05 2004/01/16 00:03:12 sts Exp $
 
 package Text::Rhombus;
 
 use 5.006;
+use base qw(Exporter);
 use strict;
 use warnings;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
-use Exporter;
-use base qw(Exporter);
-
-our (@EXPORT_OK, %EXPORT_TAGS, @subs);
-
-@subs = qw(rhombus);
-
-@EXPORT_OK = @subs;
-%EXPORT_TAGS = (  all  =>    [ @subs ]
-);
+our @EXPORT_OK = qw(rhombus);
 
 =head1 NAME
 
@@ -120,13 +112,9 @@ sub rhombus {
 1;
 __END__
 
-=head2 EXPORT
+=head1 EXPORT
 
 C<rhombus()> upon request.
-
-B<TAGS>
-
-C<:all - *()>
 
 =head1 SEE ALSO
 
