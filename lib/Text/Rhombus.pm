@@ -1,4 +1,4 @@
-# $Id: Rhombus.pm,v 0.08 2004/01/18 14:27:14 sts Exp $
+# $Id: Rhombus.pm,v 0.09 2004/01/18 14:27:14 sts Exp $
 
 package Text::Rhombus;
 
@@ -7,7 +7,7 @@ use base qw(Exporter);
 use strict;
 use warnings;
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 our @EXPORT_OK = q(rhombus);
 
@@ -107,8 +107,6 @@ lower/upper case of the letters within the rhombus.
 fillup character.
 
 =back
-
-=cut
 
 =head1 EXPORT
 
