@@ -1,6 +1,6 @@
 package Text::Rhombus;
 
-$VERSION = '0.14';
+$VERSION = '0.15';
 @EXPORT_OK = qw(rhombus);
 
 use strict;
@@ -64,6 +64,22 @@ Text::Rhombus - Draw an alphanumerical rhombus
      case    =>    'upper',
      fillup  =>        '+',
  );
+ 
+ __OUTPUT__
+ 
+ ++++++C++++++
+ +++++DDD+++++
+ ++++EEEEE++++
+ +++FFFFFFF+++
+ ++GGGGGGGGG++
+ +HHHHHHHHHHH+
+ IIIIIIIIIIIII
+ +JJJJJJJJJJJ+
+ ++KKKKKKKKK++
+ +++LLLLLLL+++
+ ++++MMMMM++++
+ +++++NNN+++++
+ ++++++O++++++
 
 =head1 FUNCTIONS
 

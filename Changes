@@ -1,5 +1,8 @@
 Revision history for Perl extension Text::Rhombus.
 
+0.15 2005/02/23
+ - Example output has been added to the docs.
+
 0.1 2004/02/01
  - Minor additions and
    indentations changes.
