@@ -1,13 +1,13 @@
-# $Id: Rhombus.pm,v 0.07 2004/01/18 14:27:14 sts Exp $
+# $Id: Rhombus.pm,v 0.08 2004/01/18 14:27:14 sts Exp $
 
 package Text::Rhombus;
 
 use 5.006;
-use base(Exporter);
+use base qw(Exporter);
 use strict;
 use warnings;
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 our @EXPORT_OK = q(rhombus);
 
@@ -67,10 +67,6 @@ Text::Rhombus - draw an alphanumerical rhombus.
      fillup  =>        '+',
  );
 
-=head1 DESCRIPTION
-
-see above.
-
 =head1 FUNCTIONS
 
 =head2 rhombus
@@ -84,7 +80,7 @@ Draws an alphanumerical rhombus.
      fillup  =>        '+',
  );
 
-Returns the rhombus in a scalar context.
+Returns the rhombus as string.
 
 Omitting options will return a rhombus of 25 lines. 
 
@@ -116,19 +112,6 @@ fillup character.
 
 =head1 EXPORT
 
-C<rhombus()> upon request.
-
-=head1 SEE ALSO
-
-perl(1)
-
-=head1 LICENSE
-
-This program is free software; 
-you may redistribute it and/or modify it under the same terms as Perl itself.
-
-=head1 AUTHOR
-
-Steven Schubiger
+C<rhombus()> is exportable.
 
 =cut
