@@ -1,4 +1,4 @@
-# $Id: Rhombus.pm,v 0.03 2004/01/16 00:03:12 sts Exp $
+# $Id: Rhombus.pm,v 0.04 2004/01/16 00:03:12 sts Exp $
 
 package Text::Rhombus;
 
@@ -6,7 +6,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use Exporter;
 use base qw(Exporter);
@@ -50,13 +50,13 @@ Draws an alphanumerical rhombus.
      case    =>    'upper',
      fillup  =>        '+',
  );
- 
+
 Returns the rhombus in a scalar context.
 
 Omitting options will return a rhombus of 25 lines. 
- 
+
 B<options>
- 
+
 =over 4
 
 =item *
@@ -83,34 +83,34 @@ fillup character.
 
 sub rhombus {
     my %o = @_;
+    
     my ($rhombus, $lines, $letter,
         $case, $fillup);
     
     $lines  = $o{lines}  ||      25;
     $letter = $o{letter} ||     'a';
     $case   = $o{case}   || 'upper'; 
-    $fillup = $o{fillup} ||     '+';
+    $fillup = $o{fillup} ||     '+'; 
+        
+    $letter = $case eq 'upper' ? uc $letter : lc $letter;
     
-    $lines++ if $lines % 2 == 0; 
+    $lines++ if $lines % 2 == 0;
     
-    if ($case eq 'upper') { $letter = uc $letter }
-    else { $letter = lc $letter }
-    
-    my $repeat = 1;
-    for (my $line = 1; $line <= $lines; $line++) {
+    my ($line, $repeat) = (1,1);
+    for (; $line <= $lines; $line++) {
         my $space = ($lines - $repeat) / 2;
 	$rhombus .= $fillup x $space;
         $rhombus .= $letter x $repeat; 
         $rhombus .= $fillup x $space."\n";
 	
-	if ($line < ($lines / 2)) { $repeat += 2 }
-	else { $repeat -= 2 }
+	$repeat = $line < ($lines / 2)
+	  ? $repeat + 2
+	  : $repeat - 2;
 
         $letter = chr(ord ($letter) + 1);
 
         if ($letter !~ /[a-z]/i) {
-	    if ($case eq 'upper') { $letter = 'A' } 
-	    else { $letter = 'a' }
+	    $letter = $case eq 'upper' ? 'A' : 'a';
 	}
     }
     
@@ -127,36 +127,6 @@ C<rhombus()> upon request.
 B<TAGS>
 
 C<:all - *()>
-
-=head1 EXAMPLE
-
-Default rhombus of 25 lines.
-
- ++++++++++++A++++++++++++
- +++++++++++BBB+++++++++++
- ++++++++++CCCCC++++++++++
- +++++++++DDDDDDD+++++++++
- ++++++++EEEEEEEEE++++++++
- +++++++FFFFFFFFFFF+++++++
- ++++++GGGGGGGGGGGGG++++++
- +++++HHHHHHHHHHHHHHH+++++
- ++++IIIIIIIIIIIIIIIII++++
- +++JJJJJJJJJJJJJJJJJJJ+++
- ++KKKKKKKKKKKKKKKKKKKKK++
- +LLLLLLLLLLLLLLLLLLLLLLL+
- MMMMMMMMMMMMMMMMMMMMMMMMM
- +NNNNNNNNNNNNNNNNNNNNNNN+
- ++OOOOOOOOOOOOOOOOOOOOO++
- +++PPPPPPPPPPPPPPPPPPP+++
- ++++QQQQQQQQQQQQQQQQQ++++
- +++++RRRRRRRRRRRRRRR+++++
- ++++++SSSSSSSSSSSSS++++++
- +++++++TTTTTTTTTTT+++++++
- ++++++++UUUUUUUUU++++++++
- +++++++++VVVVVVV+++++++++
- ++++++++++WWWWW++++++++++
- +++++++++++XXX+++++++++++
- ++++++++++++Y++++++++++++
 
 =head1 SEE ALSO
 
