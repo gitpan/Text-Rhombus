@@ -1,6 +1,6 @@
 package Text::Rhombus;
 
-$VERSION = '0.1';
+$VERSION = '0.11';
 @EXPORT_OK = qw(rhombus);
 
 use strict;
@@ -8,7 +8,7 @@ use base qw(Exporter);
 
 sub rhombus {
     my %o = @_;    
-    my($rhombus, $lines, $letter,
+    my ($rhombus, $lines, $letter,
        $case, $fillup);
     
     $lines  = $o{lines}  ||      25;
@@ -22,7 +22,8 @@ sub rhombus {
        
     $lines++ if ($lines % 2 == 0);
     
-    my($line, $repeat) = (1,1);
+    my ($line, $repeat) = (1,1);
+    
     for (; $line <= $lines; $line++) {
         my $space = ($lines - $repeat) / 2;
 	my $fillup_space = $fillup x $space;
@@ -35,9 +36,9 @@ sub rhombus {
 	  ? $repeat + 2
 	  : $repeat - 2;
 
-        $letter = chr(ord($letter) + 1);
+        $letter = chr( ord( $letter ) + 1 );
 
-        if ($letter !~ /[a-z]/i) {
+        if ($letter !~ /[a-z]/io) {
 	    $letter = $case eq 'upper' 
 	      ? 'A' : 'a';
 	}
@@ -97,7 +98,7 @@ alphanumerical letter to start with.
 
 =item B<case>
 
-lower/upper case of the letters within the rhombus.
+lower / upper case of the letters within the rhombus.
 
 =item B<fillup>
 
