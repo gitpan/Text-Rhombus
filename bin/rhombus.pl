@@ -1,9 +1,8 @@
-#!/usr/bin/perl
+#!/usr/local/bin/perl
 
 use strict;
 use warnings;
-
-use Text::Rhombus q(rhombus);
+use Text::Rhombus qw(rhombus);
 
 print rhombus(
     lines   =>         31,

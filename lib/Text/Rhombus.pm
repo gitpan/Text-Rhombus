@@ -1,32 +1,28 @@
-# $Id: Rhombus.pm,v 0.09 2004/01/18 14:27:14 sts Exp $
-
 package Text::Rhombus;
 
-use 5.006;
-use base qw(Exporter);
+$VERSION = '0.1';
+@EXPORT_OK = qw(rhombus);
+
 use strict;
-use warnings;
-
-our $VERSION = '0.09';
-
-our @EXPORT_OK = q(rhombus);
+use base qw(Exporter);
 
 sub rhombus {
-    my %o = @_;
-    
-    my ($rhombus, $lines, $letter,
-        $case, $fillup);
+    my %o = @_;    
+    my($rhombus, $lines, $letter,
+       $case, $fillup);
     
     $lines  = $o{lines}  ||      25;
     $letter = $o{letter} ||     'a';
     $case   = $o{case}   || 'upper'; 
     $fillup = $o{fillup} ||     '+'; 
         
-    $letter = $case eq 'upper' ? uc $letter : lc $letter;
+    $letter = $case eq 'upper' 
+      ? uc $letter 
+      : lc $letter;   
+       
+    $lines++ if ($lines % 2 == 0);
     
-    $lines++ if $lines % 2 == 0;
-    
-    my ($line, $repeat) = (1,1);
+    my($line, $repeat) = (1,1);
     for (; $line <= $lines; $line++) {
         my $space = ($lines - $repeat) / 2;
 	my $fillup_space = $fillup x $space;
@@ -42,9 +38,10 @@ sub rhombus {
         $letter = chr(ord($letter) + 1);
 
         if ($letter !~ /[a-z]/i) {
-	    $letter = $case eq 'upper' ? 'A' : 'a';
+	    $letter = $case eq 'upper' 
+	      ? 'A' : 'a';
 	}
-    }
+    }    
     
     return $rhombus;
 }
@@ -54,11 +51,11 @@ __END__
 
 =head1 NAME
 
-Text::Rhombus - draw an alphanumerical rhombus.
+Text::Rhombus - Draw an alphanumerical rhombus
 
 =head1 SYNOPSIS
 
- use Text::Rhombus q(rhombus);
+ use Text::Rhombus qw(rhombus);
 
  print rhombus(
      lines   =>         31,

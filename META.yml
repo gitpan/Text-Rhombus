@@ -6,5 +6,4 @@ requires:
     Exporter: 0 
 distribution_type: module
 license: perl
-dist_abstract: draw an alphanumerical rhombus.
-dist_author: Steven Schubiger
+dist_abstract: Draw an alphanumerical rhombus

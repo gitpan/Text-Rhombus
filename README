@@ -1,7 +1,7 @@
 Text::Rhombus
 =============
 
-Draw an alphanumerical rhombus.
+Draw an alphanumerical rhombus
 
 INSTALLATION
 
@@ -16,8 +16,7 @@ SCRIPTS
 
 bin/rhombus.pl
 
-Interface to Text::Rhombus that contains 
-predefined options and outputs a rhombus.
+Example rhombus.
 
 LICENSE
 
