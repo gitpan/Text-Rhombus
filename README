@@ -1,0 +1,29 @@
+Text::Rhombus
+=============
+
+Extension that draws an alphanumerical rhombus.
+
+INSTALLATION
+
+To install this module type the following:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+   
+SCRIPTS
+
+bin/rhombus.pl
+
+Interface to Text::Rhombus that contains 
+predefined options and outputs a rhombus.
+
+LICENSE
+
+This program is free software;
+you may redistribute it and/or modify it under the same terms as Perl itself.
+
+AUTHOR
+
+Steven Schubiger

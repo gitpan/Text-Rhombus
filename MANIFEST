@@ -1,0 +1,8 @@
+bin/rhombus.pl
+CHANGES
+lib/Text/Rhombus.pm
+Makefile.PL
+MANIFEST			This list of files
+META.yml
+README
+t/Text-Rhombus.t

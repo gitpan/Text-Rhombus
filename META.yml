@@ -1,0 +1,10 @@
+--- #YAML:1.0
+module_name: Text-Rhombus
+dist_version_from: lib/Text/Rhombus.pm
+installdirs: site
+requires:
+    Exporter: 0 
+distribution_type: module
+license: perl
+dist_abstract: draw an alphanumerical rhombus.
+dist_author: Steven Schubiger
