@@ -1,4 +1,4 @@
-# $Id: Rhombus.pm,v 0.01 2004/01/15 13:11:57 sts Exp $
+# $Id: Rhombus.pm,v 0.02 2004/01/15 13:11:57 sts Exp $
 
 package Text::Rhombus;
 
@@ -6,7 +6,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Exporter;
 use base qw(Exporter);
@@ -50,6 +50,8 @@ Draws an alphanumerical rhombus.
      case    =>    'upper',
      fillup  =>        '+',
  );
+ 
+Returns the rhombus in a scalar context. 
  
 B<options> (mandatory)
  
