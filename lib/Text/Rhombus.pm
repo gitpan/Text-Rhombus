@@ -1,6 +1,6 @@
 package Text::Rhombus;
 
-$VERSION = '0.12';
+$VERSION = '0.14';
 @EXPORT_OK = qw(rhombus);
 
 use strict;
