@@ -1,4 +1,4 @@
-# $Id: Rhombus.pm,v 0.02 2004/01/15 13:11:57 sts Exp $
+# $Id: Rhombus.pm,v 0.03 2004/01/16 00:03:12 sts Exp $
 
 package Text::Rhombus;
 
@@ -6,7 +6,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 use Exporter;
 use base qw(Exporter);
@@ -44,16 +44,18 @@ see above.
 
 Draws an alphanumerical rhombus.
 
- print rhombus(
+ $rhombus = rhombus(
      lines   =>         31,
      letter  =>        'c',
      case    =>    'upper',
      fillup  =>        '+',
  );
  
-Returns the rhombus in a scalar context. 
+Returns the rhombus in a scalar context.
+
+Omitting options will return a rhombus of 25 lines. 
  
-B<options> (mandatory)
+B<options>
  
 =over 4
 
@@ -125,6 +127,36 @@ C<rhombus()> upon request.
 B<TAGS>
 
 C<:all - *()>
+
+=head1 EXAMPLE
+
+Default rhombus of 25 lines.
+
+ ++++++++++++A++++++++++++
+ +++++++++++BBB+++++++++++
+ ++++++++++CCCCC++++++++++
+ +++++++++DDDDDDD+++++++++
+ ++++++++EEEEEEEEE++++++++
+ +++++++FFFFFFFFFFF+++++++
+ ++++++GGGGGGGGGGGGG++++++
+ +++++HHHHHHHHHHHHHHH+++++
+ ++++IIIIIIIIIIIIIIIII++++
+ +++JJJJJJJJJJJJJJJJJJJ+++
+ ++KKKKKKKKKKKKKKKKKKKKK++
+ +LLLLLLLLLLLLLLLLLLLLLLL+
+ MMMMMMMMMMMMMMMMMMMMMMMMM
+ +NNNNNNNNNNNNNNNNNNNNNNN+
+ ++OOOOOOOOOOOOOOOOOOOOO++
+ +++PPPPPPPPPPPPPPPPPPP+++
+ ++++QQQQQQQQQQQQQQQQQ++++
+ +++++RRRRRRRRRRRRRRR+++++
+ ++++++SSSSSSSSSSSSS++++++
+ +++++++TTTTTTTTTTT+++++++
+ ++++++++UUUUUUUUU++++++++
+ +++++++++VVVVVVV+++++++++
+ ++++++++++WWWWW++++++++++
+ +++++++++++XXX+++++++++++
+ ++++++++++++Y++++++++++++
 
 =head1 SEE ALSO
 
