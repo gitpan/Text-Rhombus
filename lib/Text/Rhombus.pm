@@ -1,6 +1,6 @@
 package Text::Rhombus;
 
-$VERSION = '0.11';
+$VERSION = '0.12';
 @EXPORT_OK = qw(rhombus);
 
 use strict;
@@ -20,7 +20,7 @@ sub rhombus {
       ? uc $letter 
       : lc $letter;   
        
-    $lines++ if ($lines % 2 == 0);
+    $lines++    if ($lines % 2 == 0);
     
     my ($line, $repeat) = (1,1);
     
@@ -30,7 +30,7 @@ sub rhombus {
 	
 	$rhombus .= $fillup_space;
         $rhombus .= $letter x $repeat; 
-        $rhombus .= $fillup_space."\n";
+        $rhombus .= $fillup_space . "\n";
 	
 	$repeat = $line < ($lines / 2)
 	  ? $repeat + 2
